@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppMacOS — Trusted macOS Software Downloads | Secure &amp; Verified Apps</title>
+  <meta name="description" content="AppMacOS is the most trusted repository for macOS software downloads. Discover secure, verified, and community-rated Mac apps — from productivity tools to creative software. Safe installs, zero bloatware." />
+  <meta name="keywords" content="macOS apps, Mac software download, trusted Mac apps, verified macOS software, best Mac apps 2025, secure Mac downloads" />
+  <meta property="og:title" content="AppMacOS — Trusted macOS Software Repository" />
+  <meta property="og:description" content="Discover, download and verify the best macOS apps — curated, secure, and community-trusted." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0c0f;
+      --bg2: #0f1217;
+      --bg3: #151a22;
+      --card: #111520;
+      --border: rgba(255,255,255,0.07);
+      --border-active: rgba(99,200,255,0.35);
+      --text: #e8edf5;
+      --text-muted: #6b7a91;
+      --text-dim: #3d4a5c;
+      --accent: #3eb8f0;
+      --accent2: #7df0b8;
+      --accent3: #f0b83e;
+      --accent-glow: rgba(62,184,240,0.15);
+      --red: #f05050;
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+ 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+ 
+    /* ─── NOISE TEXTURE ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .5;
+    }
+ 
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+      background: rgba(10,12,15,0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; color: var(--text);
+      text-decoration: none;
+    }
+ 
+    .nav-logo .apple-icon {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+ 
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+ 
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      transition: color .2s;
+    }
+ 
+    .nav-links a:hover { color: var(--text); }
+ 
+    .nav-cta {
+      background: var(--accent); color: #000 !important;
+      padding: 7px 18px; border-radius: 20px;
+      font-weight: 600 !important;
+      transition: opacity .2s !important;
+    }
+ 
+    .nav-cta:hover { opacity: 0.85; }
+ 
+    .badge-verified {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(125,240,184,0.1); border: 1px solid rgba(125,240,184,0.25);
+      color: var(--accent2); font-size: 0.72rem; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px;
+      font-family: 'DM Mono', monospace; letter-spacing: 0.04em;
+    }
+ 
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+ 
+    .hero-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(62,184,240,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -60%);
+      pointer-events: none;
+    }
+ 
+    .hero-glow2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(125,240,184,0.08) 0%, transparent 70%);
+      top: 60%; left: 35%; transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+ 
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(62,184,240,0.08); border: 1px solid rgba(62,184,240,0.2);
+      color: var(--accent); font-size: 0.78rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+      font-family: 'DM Mono', monospace; letter-spacing: 0.05em;
+      margin-bottom: 28px;
+      animation: fadeUp .6s ease both;
+    }
+ 
+    .hero-tag .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+ 
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      animation: fadeUp .7s .1s ease both;
+    }
+ 
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+ 
+    .hero-sub {
+      font-size: 1.1rem; color: var(--text-muted);
+      max-width: 560px; line-height: 1.7;
+      margin-bottom: 44px;
+      animation: fadeUp .7s .2s ease both;
+    }
+ 
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp .7s .3s ease both;
+    }
+ 
+    .btn-primary {
+      background: var(--accent); color: #000;
+      padding: 13px 28px; border-radius: 10px;
+      font-weight: 700; font-size: 0.95rem;
+      border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 30px rgba(62,184,240,0.3);
+    }
+ 
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 45px rgba(62,184,240,0.45);
+    }
+ 
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      padding: 13px 28px; border-radius: 10px;
+      font-weight: 600; font-size: 0.95rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: border-color .2s, background .2s;
+    }
+ 
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.04);
+    }
+ 
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+      padding: 28px 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+ 
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.82rem; color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+    }
+ 
+    .trust-item .icon { font-size: 1.1rem; }
+    .trust-item strong { color: var(--text); }
+ 
+    /* ─── SECTION ─── */
+    section {
+      position: relative; z-index: 1;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+ 
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      color: var(--accent); text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+ 
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+ 
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem; line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 56px;
+    }
+ 
+    /* ─── APP GRID ─── */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+ 
+    .app-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    .app-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at top left, rgba(62,184,240,0.05), transparent 60%);
+      opacity: 0; transition: opacity .3s;
+    }
+ 
+    .app-card:hover {
+      border-color: var(--border-active);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+ 
+    .app-card:hover::before { opacity: 1; }
+ 
+    .app-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+ 
+    .app-info { display: flex; align-items: center; gap: 14px; }
+ 
+    .app-icon {
+      width: 52px; height: 52px;
+      border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+ 
+    .app-name {
+      font-weight: 700; font-size: 0.98rem;
+      margin-bottom: 3px;
+    }
+ 
+    .app-dev {
+      font-size: 0.78rem; color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+    }
+ 
+    .app-badge {
+      font-size: 0.67rem; font-weight: 700;
+      padding: 3px 9px; border-radius: 20px;
+      font-family: 'DM Mono', monospace; letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+ 
+    .badge-free {
+      background: rgba(125,240,184,0.12);
+      border: 1px solid rgba(125,240,184,0.25);
+      color: var(--accent2);
+    }
+ 
+    .badge-paid {
+      background: rgba(240,184,62,0.1);
+      border: 1px solid rgba(240,184,62,0.25);
+      color: var(--accent3);
+    }
+ 
+    .badge-open {
+      background: rgba(62,184,240,0.1);
+      border: 1px solid rgba(62,184,240,0.25);
+      color: var(--accent);
+    }
+ 
+    .app-desc {
+      font-size: 0.855rem; color: var(--text-muted);
+      line-height: 1.6; margin-bottom: 18px;
+    }
+ 
+    .app-footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+ 
+    .app-stars {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 0.8rem; color: var(--accent3);
+    }
+ 
+    .app-version {
+      font-size: 0.75rem; color: var(--text-dim);
+      font-family: 'DM Mono', monospace;
+    }
+ 
+    .app-dl-btn {
+      background: rgba(62,184,240,0.1);
+      border: 1px solid rgba(62,184,240,0.2);
+      color: var(--accent);
+      padding: 7px 16px; border-radius: var(--radius-sm);
+      font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; border: 1px solid rgba(62,184,240,0.25);
+      transition: background .2s, box-shadow .2s;
+    }
+ 
+    .app-dl-btn:hover {
+      background: rgba(62,184,240,0.2);
+      box-shadow: 0 0 15px rgba(62,184,240,0.2);
+    }
+ 
+    /* ─── SECURITY SECTION ─── */
+    .security-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+ 
+    .sec-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color .25s;
+    }
+ 
+    .sec-card:hover { border-color: rgba(255,255,255,0.12); }
+ 
+    .sec-icon {
+      width: 44px; height: 44px;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 18px;
+    }
+ 
+    .sec-title {
+      font-weight: 700; font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+ 
+    .sec-desc {
+      font-size: 0.83rem; color: var(--text-muted);
+      line-height: 1.65;
+    }
+ 
+    /* ─── STATS ─── */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+ 
+    .stat-cell {
+      background: var(--card);
+      padding: 40px 32px;
+      text-align: center;
+    }
+ 
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      background: linear-gradient(135deg, var(--text), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+ 
+    .stat-label {
+      font-size: 0.82rem; color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.04em;
+    }
+ 
+    /* ─── CATEGORIES ─── */
+    .cat-list {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+ 
+    .cat-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 9px 18px; border-radius: 30px;
+      font-size: 0.84rem; font-weight: 500;
+      cursor: pointer; transition: all .2s;
+      display: flex; align-items: center; gap: 7px;
+    }
+ 
+    .cat-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(62,184,240,0.06);
+    }
+ 
+    /* ─── SEARCH BAR ─── */
+    .search-wrap {
+      position: relative; max-width: 640px; margin: 0 auto 60px;
+    }
+ 
+    .search-input {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 56px 16px 52px;
+      font-size: 0.95rem; color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+ 
+    .search-input::placeholder { color: var(--text-dim); }
+    .search-input:focus {
+      border-color: var(--border-active);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+ 
+    .search-icon {
+      position: absolute; left: 18px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px; pointer-events: none;
+      color: var(--text-muted);
+    }
+ 
+    .search-cmd {
+      position: absolute; right: 16px; top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 3px 8px; border-radius: 5px;
+      font-size: 0.72rem; font-family: 'DM Mono', monospace;
+    }
+ 
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 50px 40px 34px;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+ 
+    .footer-brand p {
+      font-size: 0.83rem; color: var(--text-muted);
+      line-height: 1.65; margin-top: 12px; max-width: 260px;
+    }
+ 
+    .footer-col h4 {
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 16px;
+      font-family: 'DM Mono', monospace;
+    }
+ 
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.85rem; transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--text); }
+ 
+    .footer-bottom {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+ 
+    .footer-bottom p {
+      font-size: 0.78rem; color: var(--text-dim);
+      font-family: 'DM Mono', monospace;
+    }
+ 
+    .footer-seals {
+      display: flex; gap: 10px;
+    }
+ 
+    .seal {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 5px 12px; border-radius: 20px;
+      font-size: 0.72rem; color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+    }
+ 
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+ 
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+ 
+    .hero-float {
+      animation: floatY 5s ease-in-out infinite;
+    }
+ 
+    /* ─── SCROLLED ANIMATIONS ─── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+ 
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      footer { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="apple-icon">⌘</div>
+    AppMacOS
+  </a>
+  <ul class="nav-links">
+    <li><a href="#apps">Browse Apps</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://appmacos.com/" target="_blank" rel="noopener" class="nav-cta">GitHub Repo →</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-tag">
+    <span class="dot"></span>
+    VERIFIED REPOSITORY · macOS SOFTWARE HUB
+  </div>
+  <h1>The <em>Trusted</em> Place<br>for Mac Software</h1>
+  <p class="hero-sub">
+    Discover, download and verify the finest macOS applications — hand-curated,
+    community-rated, and rigorously scanned. Zero bloatware. Zero compromise.
+  </p>
+  <div class="hero-actions">
+    <a href="https://appmacos.com/" target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none">⌥ Browse All Apps</a>
+    <a href="https://appmacos.com/" target="_blank" rel="noopener" class="btn-ghost" style="text-decoration:none">★ Star on GitHub</a>
+  </div>
+</div>
+ 
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <span class="icon">🛡️</span>
+    <span><strong>SHA-256</strong> Verified</span>
+  </div>
+  <div class="trust-item">
+    <span class="icon">🔍</span>
+    <span><strong>Malware</strong> Scanned</span>
+  </div>
+  <div class="trust-item">
+    <span class="icon">✍🏼</span>
+    <span><strong>Notarized</strong> by Apple</span>
+  </div>
+  <div class="trust-item">
+    <span class="icon">⚡</span>
+    <span><strong>Universal</strong> Binaries</span>
+  </div>
+  <div class="trust-item">
+    <span class="icon">🌐</span>
+    <span><strong>Open Source</strong> Repository</span>
+  </div>
+</div>
+ 
+<!-- APPS SECTION -->
+<section id="apps">
+  <div class="section-label">// Featured Apps</div>
+  <h2 class="section-title reveal">Curated for Mac Users,<br>by Mac Users</h2>
+  <p class="section-sub reveal">Each app is individually reviewed, security-audited, and tagged with clear licensing. No dark patterns, no sponsored results.</p>
+ 
+  <div class="search-wrap reveal">
+    <span class="search-icon">⌕</span>
+    <input class="search-input" type="text" placeholder="Search apps, utilities, categories…" />
+    <span class="search-cmd">⌘ K</span>
+  </div>
+ 
+  <div class="app-grid">
+ 
+    <div class="app-card reveal">
+      <div class="app-header">
+        <div class="app-info">
+          <div class="app-icon" style="background:linear-gradient(135deg,#1a6ef5,#0ea5e9)">📝</div>
+          <div>
+            <div class="app-name">Markdown Pro</div>
+            <div class="app-dev">dev.mdpro</div>
+          </div>
+        </div>
+        <span class="app-badge badge-free">FREE</span>
+      </div>
+      <p class="app-desc">Lightning-fast Markdown editor with live preview, GitHub Flavored Markdown support and offline sync. Native Apple Silicon build.</p>
+      <div class="app-footer">
+        <div class="app-stars">★★★★★ <span style="color:var(--text-muted)">4.9</span></div>
+        <span class="app-version">v3.2.1</span>
+        <a href="https://appmacos.com/" target="_blank" rel="noopener" class="app-dl-btn" style="text-decoration:none">↓ Download</a>
+      </div>
+    </div>
+ 
+    <div class="app-card reveal">
+      <div class="app-header">
+        <div class="app-info">
+          <div class="app-icon" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">🔐</div>
+          <div>
+            <div class="app-name">VaultLock</div>
+            <div class="app-dev">security.vault</div>
+          </div>
+        </div>
+        <span class="app-badge badge-paid">PAID</span>
+      </div>
+      <p class="app-desc">AES-256 encrypted password manager with biometric unlock, iCloud Keychain sync and zero-knowledge architecture.</p>
+      <div class="app-footer">
+        <div class="app-stars">★★★★★ <span style="color:var(--text-muted)">4.8</span></div>
+        <span class="app-version">v2.0.4</span>
+        <a href="https://appmacos.com/" target="_blank" rel="noopener" class="app-dl-btn" style="text-decoration:none">↓ Download</a>
+      </div>
+    </div>
+ 
+    <div class="app-card reveal">
+      <div class="app-header">
+        <div class="app-info">
+          <div class="app-icon" style="background:linear-gradient(135deg,#059669,#34d399)">🎨</div>
+          <div>
+            <div class="app-name">Pixelflow</div>
+            <div class="app-dev">studio.pixelflow</div>
+          </div>
+        </div>
+        <span class="app-badge badge-open">OPEN SOURCE</span>
+      </div>
+      <p class="app-desc">Lightweight vector design tool with SVG export, artboard management and Figma-import support. 100% offline.</p>
+      <div class="app-footer">
+        <div class="app-stars">★★★★☆ <span style="color:var(--text-muted)">4.6</span></div>
+        <span class="app-version">v1.8.0</span>
+        <a href="https://appmacos.com/" target="_blank" rel="noopener" class="app-dl-btn" style="text-decoration:none">↓ Download</a>
+      </div>
+    </div>
+ 
+    <div class="app-card reveal">
+      <div class="app-header">
+        <div class="app-info">
+          <div class="app-icon" style="background:linear-gradient(135deg,#b45309,#f59e0b)">⚡</div>
+          <div>
+            <div class="app-name">CleanMyDock</div>
+            <div class="app-dev">mac.utilities</div>
+          </div>
+        </div>
+        <span class="app-badge badge-free">FREE</span>
+      </div>
+      <p class="app-desc">Reclaim RAM and disk space instantly. Smart cache cleaner, startup manager and duplicate file finder for macOS Sonoma+.</p>
+      <div class="app-footer">
+        <div class="app-stars">★★★★★ <span style="color:var(--text-muted)">4.7</span></div>
+        <span class="app-version">v4.1.0</span>
+        <a href="https://appmacos.com/" target="_blank" rel="noopener" class="app-dl-btn" style="text-decoration:none">↓ Download</a>
+      </div>
+    </div>
+ 
+    <div class="app-card reveal">
+      <div class="app-header">
+        <div class="app-info">
+          <div class="app-icon" style="background:linear-gradient(135deg,#0f766e,#2dd4bf)">🖥️</div>
+          <div>
+            <div class="app-name">TermKit</div>
+            <div class="app-dev">dev.termkit</div>
+          </div>
+        </div>
+        <span class="app-badge badge-open">OPEN SOURCE</span>
+      </div>
+      <p class="app-desc">Modern terminal emulator built with Swift. GPU-accelerated rendering, split panes, SSH profiles and tmux integration.</p>
+      <div class="app-footer">
+        <div class="app-stars">★★★★★ <span style="color:var(--text-muted)">5.0</span></div>
+        <span class="app-version">v0.9.5</span>
+        <a href="https://appmacos.com/" target="_blank" rel="noopener" class="app-dl-btn" style="text-decoration:none">↓ Download</a>
+      </div>
+    </div>
+ 
+    <div class="app-card reveal">
+      <div class="app-header">
+        <div class="app-info">
+          <div class="app-icon" style="background:linear-gradient(135deg,#be185d,#f43f5e)">🎵</div>
+          <div>
+            <div class="app-name">SoundPad</div>
+            <div class="app-dev">audio.soundpad</div>
+          </div>
+        </div>
+        <span class="app-badge badge-paid">PAID</span>
+      </div>
+      <p class="app-desc">Professional audio mixer and soundboard for Mac. Low-latency routing, CoreAudio integration and multi-output support.</p>
+      <div class="app-footer">
+        <div class="app-stars">★★★★☆ <span style="color:var(--text-muted)">4.5</span></div>
+        <span class="app-version">v5.3.2</span>
+        <a href="https://appmacos.com/" target="_blank" rel="noopener" class="app-dl-btn" style="text-decoration:none">↓ Download</a>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- STATS -->
+<section style="padding:0 24px 90px">
+  <div style="max-width:1160px;margin:0 auto">
+    <div class="stats-row reveal">
+      <div class="stat-cell">
+        <div class="stat-num">4,800+</div>
+        <div class="stat-label">Apps Indexed</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Malware Scanned</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2.1M</div>
+        <div class="stat-label">Downloads Served</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">98.7%</div>
+        <div class="stat-label">User Trust Score</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SECURITY SECTION -->
+<section id="security" style="background:rgba(255,255,255,0.015);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:90px 24px">
+  <div style="max-width:1160px;margin:0 auto">
+    <div class="section-label">// Security First</div>
+    <h2 class="section-title reveal">You Can Trust What<br>You Download Here</h2>
+    <p class="section-sub reveal">Security isn't a feature — it's the foundation. Every binary in our repository passes through a multi-layer verification pipeline.</p>
+    <div class="security-grid">
+      <div class="sec-card reveal">
+        <div class="sec-icon" style="background:rgba(62,184,240,0.1)">🛡️</div>
+        <div class="sec-title">SHA-256 Checksums</div>
+        <p class="sec-desc">Every binary is hashed and verified. Download the same file every time — no tampering possible.</p>
+      </div>
+      <div class="sec-card reveal">
+        <div class="sec-icon" style="background:rgba(125,240,184,0.1)">✅</div>
+        <div class="sec-title">Apple Notarization</div>
+        <p class="sec-desc">We only list apps that have been notarized by Apple, ensuring they meet macOS Gatekeeper security standards.</p>
+      </div>
+      <div class="sec-card reveal">
+        <div class="sec-icon" style="background:rgba(240,184,62,0.1)">🔬</div>
+        <div class="sec-title">Static Analysis</div>
+        <p class="sec-desc">Automated static code analysis detects obfuscated malware, suspicious entitlements, and privacy violations.</p>
+      </div>
+      <div class="sec-card reveal">
+        <div class="sec-icon" style="background:rgba(240,80,80,0.1)">🚨</div>
+        <div class="sec-title">CVE Monitoring</div>
+        <p class="sec-desc">Real-time vulnerability tracking. Affected apps are flagged immediately and authors notified within 24 hours.</p>
+      </div>
+      <div class="sec-card reveal">
+        <div class="sec-icon" style="background:rgba(168,85,247,0.1)">👁️</div>
+        <div class="sec-title">Community Reports</div>
+        <p class="sec-desc">Any user can flag suspicious behaviour. Reports are reviewed by our moderation team within hours.</p>
+      </div>
+      <div class="sec-card reveal">
+        <div class="sec-icon" style="background:rgba(62,184,240,0.1)">📖</div>
+        <div class="sec-title">Open Process</div>
+        <p class="sec-desc">Our full security pipeline is documented and open-source. Anyone can audit how we verify apps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="section-label">// Browse by Category</div>
+  <h2 class="section-title reveal">Find Exactly What You Need</h2>
+  <p class="section-sub reveal">From developer tools to creative suites — every genre of Mac software, organized and searchable.</p>
+  <div class="cat-list reveal">
+    <span class="cat-chip">🛠️ Developer Tools</span>
+    <span class="cat-chip">📊 Productivity</span>
+    <span class="cat-chip">🎨 Design & Creative</span>
+    <span class="cat-chip">🔐 Security & Privacy</span>
+    <span class="cat-chip">🎵 Audio & Music</span>
+    <span class="cat-chip">🎬 Video & Media</span>
+    <span class="cat-chip">🌐 Networking</span>
+    <span class="cat-chip">🖥️ System Utilities</span>
+    <span class="cat-chip">📁 File Management</span>
+    <span class="cat-chip">📸 Photography</span>
+    <span class="cat-chip">🤖 AI Tools</span>
+    <span class="cat-chip">🎮 Gaming</span>
+    <span class="cat-chip">📚 Education</span>
+    <span class="cat-chip">💬 Communication</span>
+    <span class="cat-chip">☁️ Cloud & Backup</span>
+    <span class="cat-chip">🔧 Maintenance</span>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a class="nav-logo" href="#" style="text-decoration:none;display:inline-flex">
+      <div class="apple-icon">⌘</div>
+      AppMacOS
+    </a>
+    <p>The open-source repository for trusted macOS software. Built by the community, secured by design.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Repository</h4>
+    <ul>
+      <li><a href="#">Browse Apps</a></li>
+      <li><a href="#">Submit an App</a></li>
+      <li><a href="#">Security Policy</a></li>
+      <li><a href="#">Changelog</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Developers</h4>
+    <ul>
+      <li><a href="#">API Docs</a></li>
+      <li><a href="https://appmacos.com/" target="_blank" rel="noopener">GitHub Repo</a></li>
+      <li><a href="#">Contribute</a></li>
+      <li><a href="#">CLI Tool</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Community</h4>
+    <ul>
+      <li><a href="#">Discord</a></li>
+      <li><a href="#">Twitter / X</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Newsletter</a></li>
+    </ul>
+  </div>
+</footer>
+ 
+<div class="footer-bottom">
+  <p>© 2025 AppMacOS · Open Source · MIT License</p>
+  <div class="footer-seals">
+    <span class="seal">🛡️ SECURE</span>
+    <span class="seal">✅ NOTARIZED</span>
+    <span class="seal">⌘ macOS FIRST</span>
+  </div>
+</div>
+ 
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
